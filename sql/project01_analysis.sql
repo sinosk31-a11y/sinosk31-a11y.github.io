@@ -97,7 +97,7 @@ SELECT
     country,
     gdp_pps_2023,
     gdp_pps_2025,
-    gdp_pps_change_pp
+    gdp_pps_change_pp AS gdp_pps_change
 FROM project01
 ORDER BY gdp_pps_change_pp DESC;
 
@@ -327,7 +327,7 @@ SELECT
 
     gdp_pps_2023,
     gdp_pps_2025,
-    gdp_pps_change_pp,
+    gdp_pps_change_pp AS gdp_pps_change,
 
     ai_2023,
     ai_2025,
