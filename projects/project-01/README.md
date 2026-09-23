@@ -1,118 +1,95 @@
-# Project 01 — Data Analytics Case Study
+# Digital Europe — Economic Development and Technology Adoption
 
-## Project Status
+## Project 01 | Data Analytics Portfolio
 
-Planning
-
----
-
-## 1. Business Problem
-
-To be defined after dataset selection.
+**Author:** Sinothile Mpofu  
+**Analysis period:** 2023–2025  
+**Geographic scope:** European Union (27 countries)  
+**Primary data source:** Eurostat / European Commission
 
 ---
 
-## 2. Project Objective
+## 1. Project Overview
 
-This project will investigate a defined business question using
-an openly available dataset.
+Digital transformation is developing at different rates across European countries.
 
-The analysis will demonstrate the complete data analytics workflow:
+This project investigates the relationship between economic development and selected indicators of digitalisation across the 27 European Union member states.
 
-- Data sourcing
-- Data validation
-- Data cleaning
-- Exploratory analysis
-- SQL analysis
-- Data visualization
-- Insight generation
-- Business communication
+The analysis combines economic, business, workforce and individual-level digital indicators to examine how technology adoption and digital capability vary between countries.
+
+The project uses official Eurostat datasets and applies data preparation, validation, SQL analysis, statistical correlation and data visualisation techniques.
 
 ---
 
-## 3. Research Questions
+# 2. Business Question
 
-To be defined.
+> How does technology adoption vary across European countries, and what relationships can be observed between digitalisation and economic development?
 
----
+The project investigates whether countries with higher levels of economic development also tend to report higher levels of selected digitalisation indicators.
 
-## 4. Dataset
-
-### Source
-
-To be defined.
-
-### Dataset Name
-
-To be defined.
-
-### Publisher
-
-To be defined.
-
-### License
-
-To be verified.
-
-### Date Accessed
-
-To be recorded.
+The analysis focuses on **association rather than causation**.
 
 ---
 
-## 5. Methodology
+# 3. Analytical Questions
 
-The project will follow these stages:
+The project addresses the following questions:
 
-1. Define the business problem
-2. Acquire the dataset
-3. Assess data quality
-4. Clean and prepare the data
-5. Conduct exploratory analysis
-6. Perform analytical queries
-7. Create visualizations
-8. Interpret findings
-9. Document limitations
-10. Communicate business implications
+1. How does GDP per capita vary across EU countries?
 
----
+2. How does enterprise AI adoption vary between countries?
 
-## 6. Tools
+3. How widely are enterprises using cloud computing services?
 
-Planned tools may include:
+4. How does digital-skills prevalence vary between countries?
 
-- SQL
-- Excel / Google Sheets
-- Python
-- Data visualization software
-- GitHub
-- GitHub Pages
+5. How does the share of ICT specialists differ across countries?
 
-The final toolset will depend on the requirements of the selected dataset.
+6. How did the selected indicators change between 2023 and 2025?
+
+7. What statistical relationships can be observed between GDP per capita and the selected digitalisation indicators?
 
 ---
 
-## 7. Key Findings
+# 4. Dataset
 
-To be completed after analysis.
+Five Eurostat datasets were combined for the analysis.
+
+| Indicator | Eurostat dataset | Purpose |
+|---|---|---|
+| GDP per capita | `nama_10_pc` | Economic development |
+| AI adoption | `isoc_eb_ai` | Enterprise AI adoption |
+| Cloud adoption | `isoc_cicce_use` | Enterprise cloud adoption |
+| Digital skills | `isoc_sk_dskl` | Individual digital capability |
+| ICT specialists | `isoc_sks_itsp` | Digital workforce |
+
+The final analytical dataset contains observations for:
+
+**27 EU countries**
 
 ---
 
-## 8. Business Implications
+# 5. Data Pipeline
 
-To be completed after analysis.
+The project follows a reproducible data workflow:
 
----
-
-## 9. Limitations
-
-To be documented after data validation and analysis.
-
----
-
-## 10. Sources
-
-All external datasets, documentation, definitions and supporting
-materials will be attributed to their original sources.
-
-No third-party analysis will be presented as original work.
+```text
+Official Eurostat datasets
+          ↓
+Raw TSV files
+          ↓
+Data validation
+          ↓
+Data cleaning and transformation
+          ↓
+Processed CSV datasets
+          ↓
+Master analytical dataset
+          ↓
+SQL analysis
+          ↓
+Statistical analysis
+          ↓
+Visualisations
+          ↓
+Business interpretation
