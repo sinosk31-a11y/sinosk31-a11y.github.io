@@ -610,27 +610,3 @@ Documentation of limitations
 
 Clear separation between findings and assumptions
 
-Author
-
-Sinothile Mpofu
-
-Data Analytics Portfolio
-
-GitHub:
-https://github.com/sinosk31-a11y
-
-LinkedIn:
-https://www.linkedin.com/in/sinothile-mpofu-74a01821
-
-Portfolio:
-https://sinosk31-a11y.github.io/
-
-Dataset Attribution
-
-Project 02 uses:
-
-Chen, D. (2019). Online Retail II. UCI Machine Learning Repository.
-
-https://archive.ics.uci.edu/dataset/502/online%2Bretail%2Bii
-
-DOI: https://doi.org/10.24432/C5CG6D
