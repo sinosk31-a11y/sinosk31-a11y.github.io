@@ -33,6 +33,7 @@ The objective is not only to produce charts, but to demonstrate the ability to:
 ## Core Skills
 
 ### Data Analysis
+
 - Exploratory Data Analysis (EDA)
 - Data cleaning and validation
 - Descriptive statistics
@@ -40,8 +41,12 @@ The objective is not only to produce charts, but to demonstrate the ability to:
 - Trend and change analysis
 - Correlation analysis
 - Data-quality assessment
+- Customer analytics
+- Operational analytics
+- Revenue analysis
 
 ### SQL
+
 - DuckDB
 - Filtering and aggregation
 - GROUP BY analysis
@@ -53,6 +58,7 @@ The objective is not only to produce charts, but to demonstrate the ability to:
 - Analytical extracts
 
 ### Visualization
+
 - Comparative charts
 - Horizontal bar charts
 - Scatterplots
