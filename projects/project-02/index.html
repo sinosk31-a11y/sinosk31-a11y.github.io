@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 02 — Customer & Operational Analytics | Sinothile Mpofu</title>
+
+    <meta
+        name="description"
+        content="Project 02 — Customer and Operational Analytics using the UCI Online Retail II dataset. Analysis of purchasing behavior, repeat customers, geography, products and cancellations."
+    >
+
+    <link rel="stylesheet" href="../../style.css">
+
+    <style>
+        .project-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .project-nav {
+            margin-bottom: 50px;
+        }
+
+        .project-nav a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .project-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .project-header {
+            max-width: 850px;
+            margin-bottom: 55px;
+        }
+
+        .project-label {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 7px 12px;
+            border: 1px solid #d8d2c8;
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #66635e;
+        }
+
+        .project-header h1 {
+            margin: 0 0 22px;
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .project-header p {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #66635e;
+            margin: 0;
+        }
+
+        .project-section {
+            margin-top: 65px;
+        }
+
+        .project-section h2 {
+            font-size: 28px;
+            margin-bottom: 18px;
+            letter-spacing: -0.02em;
+        }
+
+        .project-section p {
+            max-width: 850px;
+            line-height: 1.75;
+            color: #4f4d49;
+        }
+
+        .question-box {
+            margin-top: 25px;
+            padding: 28px;
+            background: #ffffff;
+            border: 1px solid #e3e0d9;
+            border-left: 4px solid #8a6a3f;
+            border-radius: 10px;
+        }
+
+        .question-box p {
+            margin: 0;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #171717;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .metric-card {
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #e3e0d9;
+            border-radius: 10px;
+        }
+
+        .metric-card strong {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .metric-card span {
+            color: #66635e;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .analysis-card {
+            padding: 26px;
+            background: #ffffff;
+            border: 1px solid #e3e0d9;
+            border-radius: 10px;
+        }
+
+        .analysis-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 19px;
+        }
+
+        .analysis-card p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .workflow {
+            margin-top: 30px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .workflow-step {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            padding: 18px 20px;
+            background: #ffffff;
+            border: 1px solid #e3e0d9;
+            border-radius: 9px;
+        }
+
+        .workflow-number {
+            min-width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #171717;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .workflow-step strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .workflow-step span {
+            color: #66635e;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .insight-list {
+            margin: 25px 0 0;
+            padding-left: 22px;
+        }
+
+        .insight-list li {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: #4f4d49;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .tech-tag {
+            padding: 9px 13px;
+            border: 1px solid #d8d2c8;
+            border-radius: 999px;
+            font-size: 14px;
+            color: #4f4d49;
+            background: #faf9f6;
+        }
+
+        .source-box {
+            padding: 26px;
+            margin-top: 25px;
+            background: #ffffff;
+            border: 1px solid #e3e0d9;
+            border-radius: 10px;
+        }
+
+        .source-box a {
+            color: #6f5432;
+            word-break: break-word;
+        }
+
+        .project-footer {
+            margin-top: 75px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd9d1;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-footer a {
+            color: #171717;
+            text-decoration: none;
+        }
+
+        .project-footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 800px) {
+            .metric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-page {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .project-header h1 {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="project-page">
+
+    <nav class="project-nav">
+        <a href="../../index.html">← Back to Portfolio</a>
+    </nav>
+
+    <header class="project-header">
+
+        <div class="project-label">
+            Project 02 · Customer & Operational Analytics
+        </div>
+
+        <h1>
+            Understanding Customer Purchasing Behavior in Online Retail
+        </h1>
+
+        <p>
+            An analytical study of purchasing behavior, repeat customers,
+            geography, product performance and cancellations using the
+            UCI Online Retail II transaction dataset.
+        </p>
+
+    </header>
+
+
+    <section class="project-section">
+
+        <h2>Business Question</h2>
+
+        <div class="question-box">
+            <p>
+                How do customer purchasing behavior, repeat purchasing,
+                geography and cancellations relate to revenue performance
+                in an online retail business?
+            </p>
+        </div>
+
+    </section>
+
+
+    <section class="project-section">
+
+        <h2>Project Overview</h2>
+
+        <p>
+            This project examines transaction-level retail data to understand
+            how customer behavior and operational activity relate to revenue.
+            The analysis moves from transaction-level data into customer,
+            country, product and monthly performance views.
+        </p>
+
+        <p>
+            Rather than treating all transactions equally, the analysis
+            distinguishes sales from cancellations and other transaction
+            types. This makes it possible to examine both revenue generation
+            and operational patterns that may affect reported sales.
+        </p>
+
+    </section>
+
+
+    <section class="project-section">
+
+        <h2>Dataset</h2>
+
+        <p>
+            The project uses the <strong>Online Retail II</strong> dataset
+            from the UCI Machine Learning Repository. The dataset contains
+            transaction-level information from a UK-based registered
+            non-store online retailer and covers December 2009 through
+            December 2011.
+        </p>
+
+        <div class="metric-grid">
+
+            <div class="metric-card">
+                <strong>1.07M+</strong>
+                <span>Transaction records in the original workbook</span>
+            </div>
+
+            <div class="metric-card">
+                <strong>2 Years</strong>
+                <span>Transaction period covered by the dataset</span>
+            </div>
+
+            <div class="metric-card">
+                <strong>8</strong>
+                <span>Original dataset columns</span>
+            </div>
+
+            <div class="metric-card">
+                <strong>43</strong>
+                <span>Countries represented in the analysis dataset</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="project-section">
+
+        <h2>Analytical Questions</h2>
+
+        <div class="analysis-grid">
+
+            <div class="analysis-card">
+                <h3>01 — Revenue Performance</h3>
+                <p>
+                    How does revenue change over time, and which periods
+                    generate the highest observed sales?
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>02 — Customer Concentration</h3>
+                <p>
+                    How is revenue distributed across customers, and how
+                    concentrated is revenue among high-value customers?
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>03 — Repeat Purchasing</h3>
+                <p>
+                    How do repeat customers differ from one-time customers
+                    in purchasing frequency and revenue contribution?
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>04 — Geography</h3>
+                <p>
+                    How does revenue vary across countries, and how does
+                    customer activity differ geographically?
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>05 — Product Performance</h3>
+                <p>
+                    Which products contribute the most to observed sales
+                    revenue and sales volume?
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <h3>06 — Cancellations</h3>
+                <p>
+                    When do cancellations occur, and how does cancellation
+                    activity compare with sales activity?
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="project-section">
+
+        <h2>Data Preparation</h2>
+
+        <p>
+            The raw workbook was processed into analytical datasets while
+            preserving the original source data separately. Transaction
+            records were standardized, numeric and date fields were
+            validated, and transaction types were explicitly classified.
+        </p>
+
+        <div class="workflow">
+
+            <div class="workflow-step">
+                <div class="workflow-number">1</div>
+                <div>
+                    <strong>Load & Combine</strong>
+                    <span>
+                        Read the two source worksheets and combine them into
+                        a single analytical transaction dataset.
+                    </span>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="workflow-number">2</div>
+                <div>
+                    <strong>Validate & Standardize</strong>
+                    <span>
+                        Standardize column names and validate dates,
+                        quantities, prices, customer identifiers and text fields.
+                    </span>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="workflow-number">3</div>
+                <div>
+                    <strong>Classify Transactions</strong>
+                    <span>
+                        Separate sales, cancellations, negative-quantity
+                        records, zero-price records and other transaction types.
+                    </span>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="workflow-number">4</div>
+                <div>
+                    <strong>Create Analytical Datasets</strong>
+                    <span>
+                        Produce cleaned transactions, sales, cancellations
+                        and customer-level analytical datasets.
+                    </span>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="workflow-number">5</div>
+                <div>
+                    <strong>Analyze & Visualize</strong>
+                    <span>
+                        Examine revenue, customers, countries, products and
+                        cancellations using SQL, Python and visual analysis.
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="project-section">
+
+        <h2>Key Findings</h2>
+
+        <ul class="insight-list">
+
+            <li>
+                The analysis contains <strong>5,878 customers</strong>
+                with valid customer identifiers available for customer-level
+                analysis.
+            </li>
+
+            <li>
+                <strong>4,255 customers</strong> were classified as repeat
+                customers, while <strong>1,623</strong> were classified as
+                one-time customers.
+            </li>
+
+            <li>
+                Repeat customers represented approximately
+                <strong>96.8% of analyzed customer revenue</strong>, compared
+                with approximately 3.2% from one-time customers.
+            </li>
+
+            <li>
+                Revenue was highly concentrated among a relatively small
+                group of customers. The top 10% of customers accounted for
+                approximately <strong>64.0%</strong> of customer revenue.
+            </li>
+
+            <li>
+                Customers with more frequent purchases generally generated
+                more revenue. The relationship between invoice frequency and
+                revenue was positive in the analyzed customer dataset.
+            </li>
+
+            <li>
+                Monthly revenue varied substantially over the observation
+                period, with November 2011 recording the highest observed
+                monthly sales revenue at approximately
+                <strong>£1.50 million</strong>.
+            </li>
+
+        </ul>
+
+        <p>
+            These findings describe observed relationships in the dataset.
+            They should not be interpreted as evidence that purchasing
+            frequency or customer characteristics directly caused higher
+            revenue.
+        </p>
+
+    </section>
+
+
+    <section class="project-section">
+
+        <h2>Tools & Technical Skills</h2>
+
+        <div class="tech-list">
+
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">Data Cleaning</span>
+            <span class="tech-tag">Data Validation</span>
+            <span class="tech-tag">Exploratory Data Analysis</span>
+            <span class="tech-tag">Customer Analytics</span>
+            <span class="tech-tag">Operational Analytics</span>
+            <span class="tech-tag">Data Visualization</span>
+            <span class="tech-tag">Business Intelligence</span>
+
+        </div>
+
+    </section>
+
+
+    <section class="project-section">
+
+        <h2>Source & Attribution</h2>
+
+        <div class="source-box">
+
+            <p>
+                Chen, D. (2019).
+                <em>Online Retail II</em>.
+                UCI Machine Learning Repository.
+            </p>
+
+            <p>
+                Official dataset:
+                <a
+                    href="https://archive.ics.uci.edu/dataset/502/online%2Bretail%2Bii"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    UCI Machine Learning Repository — Online Retail II
+                </a>
+            </p>
+
+            <p>
+                DOI:
+                <a
+                    href="https://doi.org/10.24432/C5CG6D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    10.24432/C5CG6D
+                </a>
+            </p>
+
+            <p>
+                The original workbook is approximately 43 MB and is therefore
+                kept outside the GitHub repository. Processed analytical
+                datasets and project documentation are used for the analysis.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer class="project-footer">
+
+        <a href="../../index.html">
+            ← Back to Portfolio
+        </a>
+
+        <a href="../../projects/project-01/">
+            View Project 01 →
+        </a>
+
+    </footer>
+
+</main>
+
+</body>
+</html>
