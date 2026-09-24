@@ -1,6 +1,6 @@
-sinosk31-a11y.github.io
+# sinosk31-a11y.github.io
 
-Data Analytics Portfolio
+## Data Analytics Portfolio
 
 A professional data analytics portfolio focused on data analysis, SQL, data cleaning, visualization, business intelligence, and evidence-based problem solving.
 
@@ -8,7 +8,7 @@ The projects in this repository demonstrate the complete analytical workflow:
 
 Data → Cleaning → SQL Analysis → Statistical Analysis → Visualization → Findings → Business Interpretation
 
-About This Portfolio
+## About This Portfolio
 
 This portfolio demonstrates practical application of data analytics techniques to real-world and publicly available datasets.
 
@@ -36,9 +36,9 @@ Communicate technical findings to a non-technical audience
 
 Produce reproducible analytical work
 
-Core Skills
+## Core Skills
 
-Data Analysis
+### Data Analysis
 
 Exploratory Data Analysis (EDA)
 
@@ -60,7 +60,7 @@ Operational analytics
 
 Revenue analysis
 
-SQL
+### SQL
 
 DuckDB
 
@@ -80,7 +80,7 @@ Statistical calculations
 
 Analytical extracts
 
-Visualization
+### Visualization
 
 Comparative charts
 
@@ -94,9 +94,9 @@ Correlation visualizations
 
 Data storytelling
 
-Tools & Technologies
+### Tools & Technologies
 
-SQL
+### SQL
 
 DuckDB
 
@@ -116,18 +116,18 @@ HTML
 
 CSS
 
-Project 01 — Digital Europe
+# Project 01 — Digital Europe
 
-Exploring the Relationship Between Economic Development and Technology Adoption
+## Exploring the Relationship Between Economic Development and Technology Adoption
 
-Live case study:
+**Live case study:**
 https://sinosk31-a11y.github.io/projects/project-01/
 
-Business Question
+### Business Question
 
 How does technology adoption vary across European countries, and what relationships can be observed between digitalization and economic development?
 
-Research Questions
+### Research Questions
 
 The project investigates:
 
@@ -145,9 +145,10 @@ What relationships can be observed between GDP per capita and technology-adoptio
 
 How have selected digital indicators changed between comparable years and 2025?
 
-Analytical Workflow
+### Analytical Workflow
 
 Public Data Sources
+```text
         ↓
 Data Validation
         ↓
@@ -164,8 +165,9 @@ Python Visualizations
 Findings & Interpretation
         ↓
 Published Case Study
+```
 
-Key Analytical Areas
+### Key Analytical Areas
 
 Economic development
 
@@ -183,7 +185,7 @@ Correlation analysis
 
 Change over time
 
-Tools Used
+### Tools Used
 
 Python
 
@@ -191,7 +193,7 @@ Pandas
 
 DuckDB
 
-SQL
+### SQL
 
 Matplotlib
 
@@ -199,25 +201,25 @@ GitHub
 
 GitHub Pages
 
-Project Outcome
+### Project Outcome
 
 Project 01 demonstrates an end-to-end approach to combining multiple public datasets, standardizing indicators, performing SQL and statistical analysis, creating visualizations, and communicating relationships between economic and digital-development indicators.
 
-View Project 01:
+**View Project 01:**
 https://sinosk31-a11y.github.io/projects/project-01/
 
-Project 02 — Customer & Operational Analytics
+# Project 02 — Customer & Operational Analytics
 
-Online Retail Customer, Revenue and Operational Analysis
+## Online Retail Customer, Revenue and Operational Analysis
 
-Live case study:
+**Live case study:**
 https://sinosk31-a11y.github.io/projects/project-02/
 
-Business Question
+### Business Question
 
 How do customer purchasing behavior, repeat purchasing, geography and cancellations relate to revenue performance in an online retail business?
 
-Analytical Questions
+### Analytical Questions
 
 The project investigates:
 
@@ -237,21 +239,21 @@ What cancellation patterns can be observed over time?
 
 What operational and customer-level patterns are visible in the transaction data?
 
-Dataset
+### Dataset
 
 The project uses the Online Retail II dataset from the UCI Machine Learning Repository.
 
-Official source:
+**Official source:**
 https://archive.ics.uci.edu/dataset/502/online%2Bretail%2Bii
 
-Citation:
+**Citation:**
 
 Chen, D. (2019). Online Retail II. UCI Machine Learning Repository.
 
-DOI:
+**DOI:**
 https://doi.org/10.24432/C5CG6D
 
-Dataset Description
+#### Dataset Description
 
 The dataset contains transaction-level information from a UK-based online retail business.
 
@@ -283,9 +285,10 @@ Country
 
 Invoices beginning with C are identified by the source as cancellations.
 
-Analytical Workflow
+### Analytical Workflow
 
 UCI Online Retail II Dataset
+```text
         ↓
 Data Validation
         ↓
@@ -299,13 +302,16 @@ SQL / Python Analysis
         ↓
 Customer & Operational Analysis
         ↓
-Visualization
+```
+### Visualization
+```text
         ↓
 Findings & Business Interpretation
         ↓
 Published Case Study
+```
 
-Data Preparation
+### Data Preparation
 
 The analysis includes:
 
@@ -329,9 +335,9 @@ Creating product-level summaries
 
 Creating monthly revenue and cancellation summaries
 
-Key Areas of Analysis
+### Key Areas of Analysis
 
-Revenue Analysis
+#### Revenue Analysis
 
 The project examines:
 
@@ -347,19 +353,19 @@ Revenue changes over time
 
 Total sales revenue across the analyzed sales transactions is approximately:
 
-£20.91 million
+**£20.91 million**
 
 The highest observed monthly revenue occurred in:
 
-November 2011 — approximately £1.50 million
+**November 2011 — approximately £1.50 million**
 
 The lowest observed monthly revenue occurred in:
 
-February 2011 — approximately £522,546
+**February 2011 — approximately £522,546**
 
 December 2011 is treated cautiously because the source data ends on December 9, 2011, making that month incomplete.
 
-Customer Analysis
+#### Customer Analysis
 
 The customer analysis examines purchasing frequency and revenue contribution.
 
@@ -373,35 +379,35 @@ The analysis identified approximately:
 
 Repeat customers represented approximately:
 
-72.4% of customers
+**72.4% of customers**
 
 and generated approximately:
 
-96.8% of analyzed revenue
+**96.8% of analyzed revenue**
 
 One-time customers represented approximately:
 
-27.6% of customers
+**27.6% of customers**
 
 and generated approximately:
 
-3.2% of analyzed revenue
+**3.2% of analyzed revenue**
 
-Revenue Concentration
+#### Revenue Concentration
 
 The analysis also examines the distribution of revenue across customers.
 
 Key observations include:
 
-The top 10% of customers generated approximately 64% of revenue.
+The top 10% of customers generated approximately **64% of revenue**.
 
-The top 100 customers generated approximately 37.6% of revenue.
+The top 100 customers generated approximately **37.6% of revenue**.
 
 A very small group of customers accounted for a substantial proportion of total revenue.
 
 These results describe revenue concentration in the dataset; they do not establish causal relationships.
 
-Customer Purchasing Behavior
+#### Customer Purchasing Behavior
 
 The analysis compares:
 
@@ -417,15 +423,15 @@ The relationship between invoice frequency and revenue was examined using correl
 
 The results showed:
 
-Pearson correlation: approximately 0.629
+**Pearson correlation: approximately 0.629**
 
-Spearman correlation: approximately 0.859
+**Spearman correlation: approximately 0.859**
 
 These statistics indicate a positive association between purchasing frequency and revenue contribution in this dataset.
 
 Correlation is descriptive and does not establish causation.
 
-Geographic Analysis
+#### Geographic Analysis
 
 Country-level analysis examines:
 
@@ -441,7 +447,7 @@ Average order value
 
 This provides a geographic view of where sales activity and revenue were generated within the dataset.
 
-Product Analysis
+#### Product Analysis
 
 Product-level analysis examines:
 
@@ -457,7 +463,7 @@ Product contribution to overall sales
 
 This helps identify products with substantial transaction and revenue activity.
 
-Cancellation Analysis
+#### Cancellation Analysis
 
 The project separately analyzes cancellation transactions to examine:
 
@@ -473,13 +479,13 @@ Operational implications of cancellations
 
 Cancellation records are treated separately from completed sales when calculating sales revenue.
 
-Tools Used
+### Tools Used
 
 Python
 
 Pandas
 
-SQL
+### SQL
 
 DuckDB
 
@@ -491,7 +497,7 @@ GitHub
 
 GitHub Pages
 
-Technical Skills Demonstrated
+#### Technical Skills Demonstrated
 
 Data ingestion
 
@@ -519,7 +525,7 @@ Business interpretation
 
 Reproducible analytical workflows
 
-Data Limitations
+### Data Limitations
 
 The analysis has several important limitations:
 
@@ -539,7 +545,7 @@ Revenue concentration should not automatically be interpreted as customer loyalt
 
 These limitations are considered when interpreting the findings.
 
-Reproducibility
+### Reproducibility
 
 The original online_retail_II.xlsx workbook is approximately 43 MB and is not committed to this GitHub repository.
 
@@ -557,7 +563,7 @@ Recreate the visualizations and findings.
 
 The processed analytical outputs used for the published case study are maintained separately from the original raw workbook.
 
-Project Outcome
+### Project Outcome
 
 Project 02 demonstrates an end-to-end customer and operational analytics workflow using transaction-level retail data.
 
@@ -567,10 +573,10 @@ Data Validation → Cleaning → Transformation → Customer Analysis → Revenu
 
 The case study demonstrates the ability to use analytical methods to investigate customer behavior, revenue concentration, geographic performance, product activity, and cancellation patterns while documenting data limitations and avoiding unsupported causal conclusions.
 
-View Project 02:
+**View Project 02:**
 https://sinosk31-a11y.github.io/projects/project-02/
 
-Portfolio Project Structure
+# Portfolio Project Structure
 
 Project
 
@@ -590,7 +596,7 @@ Customer & Operational Analytics
 
 SQL, Python, customer analytics, revenue analysis, operational analysis
 
-Reproducibility & Documentation
+# Reproducibility & Documentation
 
 Each project is designed to document the analytical process rather than only present final charts.
 
@@ -609,4 +615,3 @@ Appropriate statistical interpretation
 Documentation of limitations
 
 Clear separation between findings and assumptions
-
