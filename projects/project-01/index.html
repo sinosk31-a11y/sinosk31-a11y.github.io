@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Europe | Sinothile Mpofu</title>
+
+    <meta name="description"
+          content="Digital Europe — an end-to-end data analytics case study examining economic development and technology adoption across European countries.">
+
+    <meta name="author" content="Sinothile Mpofu">
+
+    <style>
+        /* =========================================================
+           PROJECT 01 — SELF-CONTAINED VISUAL SYSTEM
+           No external CSS or JavaScript dependencies.
+           This keeps the project page isolated from the main site.
+        ========================================================== */
+
+        :root {
+            --bg: #080a09;
+            --bg-soft: #0d100f;
+            --panel: rgba(18, 21, 20, 0.78);
+            --panel-strong: #111514;
+            --text: #f3eee5;
+            --muted: #9b9b94;
+            --line: rgba(243, 238, 229, 0.14);
+            --line-strong: rgba(243, 238, 229, 0.25);
+            --accent: #ff6547;
+            --accent-soft: rgba(255, 101, 71, 0.16);
+            --max: 1380px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at 78% 12%, rgba(255, 101, 71, 0.10), transparent 28%),
+                radial-gradient(circle at 12% 55%, rgba(83, 121, 116, 0.08), transparent 30%),
+                var(--bg);
+            color: var(--text);
+            font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: .22;
+            background-image:
+                linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(to bottom, black, transparent 88%);
+            z-index: -1;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .project-shell {
+            width: min(calc(100% - 48px), var(--max));
+            margin: 0 auto;
+        }
+
+        /* ---------- Navigation ---------- */
+
+        .project-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            border-bottom: 1px solid var(--line);
+            background: rgba(8, 10, 9, 0.82);
+            backdrop-filter: blur(18px);
+        }
+
+        .project-nav-inner {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        .brand {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .02em;
+            white-space: nowrap;
+        }
+
+        .brand::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-right: 9px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 18px rgba(255, 101, 71, .55);
+        }
+
+        .project-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .project-nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            transition: color .25s ease, transform .25s ease;
+        }
+
+        .project-nav-links a:hover,
+        .project-nav-links a:focus-visible {
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        /* ---------- Hero ---------- */
+
+        .hero {
+            min-height: 78vh;
+            display: grid;
+            align-items: center;
+            position: relative;
+            padding: 96px 0 110px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 460px;
+            height: 460px;
+            right: -120px;
+            top: 10%;
+            border: 1px solid rgba(255, 101, 71, .18);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 70px rgba(255, 101, 71, .025),
+                0 0 0 140px rgba(255, 101, 71, .018);
+            pointer-events: none;
+        }
+
+        .eyebrow,
+        .label {
+            margin: 0 0 22px;
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(300px, .65fr);
+            gap: 72px;
+            align-items: end;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            max-width: 950px;
+            margin: 0;
+            font-size: clamp(4.4rem, 10vw, 9.5rem);
+            line-height: .84;
+            letter-spacing: -.075em;
+            font-weight: 800;
+        }
+
+        h1 .outline {
+            display: block;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(243, 238, 229, .55);
+        }
+
+        h1 .accent {
+            display: block;
+            color: var(--accent);
+        }
+
+        .hero-summary {
+            max-width: 650px;
+            margin: 42px 0 0;
+            color: #b8b7b0;
+            font-size: clamp(1rem, 1.3vw, 1.18rem);
+        }
+
+        .hero-meta {
+            align-self: end;
+            padding: 24px;
+            border: 1px solid var(--line);
+            background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.008));
+            box-shadow: 0 24px 80px rgba(0,0,0,.18);
+        }
+
+        .hero-meta strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        .hero-meta p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* ---------- Content ---------- */
+
+        .section {
+            padding: 110px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 24px;
+            align-items: start;
+            margin-bottom: 58px;
+        }
+
+        .section-number {
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+
+        .section h2 {
+            margin: 0;
+            max-width: 900px;
+            font-size: clamp(2.8rem, 6vw, 6rem);
+            line-height: .92;
+            letter-spacing: -.055em;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 70px;
+        }
+
+        .intro-grid h3 {
+            margin: 0;
+            font-size: clamp(1.7rem, 3vw, 2.6rem);
+            line-height: 1.05;
+            letter-spacing: -.035em;
+        }
+
+        .intro-grid p {
+            max-width: 760px;
+            margin: 0 0 20px;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        /* ---------- Metric / methodology cards ---------- */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--line);
+        }
+
+        .card {
+            min-height: 230px;
+            padding: 30px;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            position: relative;
+            overflow: hidden;
+            background: rgba(255,255,255,.012);
+            transition:
+                transform .35s cubic-bezier(.2,.8,.2,1),
+                background .35s ease,
+                border-color .35s ease;
+        }
+
+        .card:nth-child(3n) {
+            border-right: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(145deg, rgba(255,101,71,.08), rgba(255,255,255,.018));
+            border-color: rgba(255,101,71,.35);
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            right: -50px;
+            bottom: -55px;
+            border: 1px solid rgba(255,101,71,.22);
+            border-radius: 50%;
+            transition: transform .5s ease;
+        }
+
+        .card:hover::after {
+            transform: scale(1.5);
+        }
+
+        .card-number {
+            color: var(--accent);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .16em;
+        }
+
+        .card h3 {
+            margin: 45px 0 10px;
+            font-size: 23px;
+            letter-spacing: -.025em;
+        }
+
+        .card p {
+            margin: 0;
+            max-width: 330px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* ---------- Project workflow ---------- */
+
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .step {
+            padding: 26px 22px;
+            min-height: 150px;
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.012);
+            transition: background .3s ease, border-color .3s ease, transform .3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255,101,71,.35);
+            background: rgba(255,101,71,.055);
+        }
+
+        .step span {
+            display: block;
+            margin-bottom: 35px;
+            color: var(--accent);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .14em;
+        }
+
+        .step strong {
+            font-size: 16px;
+        }
+
+        /* ---------- Links ---------- */
+
+        .cta-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 20px;
+            border: 1px solid var(--line-strong);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .14em;
+            transition: all .25s ease;
+        }
+
+        .cta.primary {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: #120b08;
+        }
+
+        .cta:hover,
+        .cta:focus-visible {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .cta.secondary:hover,
+        .cta.secondary:focus-visible {
+            background: var(--accent-soft);
+        }
+
+        /* ---------- Footer ---------- */
+
+        footer {
+            padding: 42px 0 58px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        footer-inner {
+            display: flex;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .footer-inner p {
+            margin: 0;
+        }
+
+        /* ---------- Responsive ---------- */
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 76px;
+            }
+
+            .hero-meta {
+                max-width: 520px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card:nth-child(3n) {
+                border-right: 1px solid var(--line);
+            }
+
+            .card:nth-child(2n) {
+                border-right: 0;
+            }
+
+            .workflow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .project-shell {
+                width: min(calc(100% - 30px), var(--max));
+            }
+
+            .project-nav-inner {
+                min-height: 70px;
+            }
+
+            .project-nav-links {
+                gap: 14px;
+            }
+
+            .project-nav-links a:nth-child(n+4) {
+                display: none;
+            }
+
+            h1 {
+                font-size: clamp(3.6rem, 18vw, 6rem);
+            }
+
+            .hero::after {
+                width: 300px;
+                height: 300px;
+                right: -170px;
+            }
+
+            .section {
+                padding: 78px 0;
+            }
+
+            .section-heading {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin-bottom: 38px;
+            }
+
+            .cards,
+            .workflow {
+                grid-template-columns: 1fr;
+            }
+
+            .card,
+            .card:nth-child(2n),
+            .card:nth-child(3n) {
+                border-right: 0;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="project-nav">
+    <div class="project-shell project-nav-inner">
+        <a class="brand" href="../../#home">Sinothile Mpofu</a>
+
+        <nav class="project-nav-links" aria-label="Project navigation">
+            <a href="../../#home">Home</a>
+            <a href="../../#about">About</a>
+            <a href="../../#skills">Skills</a>
+            <a href="../../#projects">Projects</a>
+            <a href="../../#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="project-shell hero-grid">
+
+            <div>
+                <p class="eyebrow">Project 01 · Data Analytics · Europe</p>
+
+                <h1>
+                    Digital
+                    <span class="outline">Europe.</span>
+                    <span class="accent">Evidence.</span>
+                </h1>
+
+                <p class="hero-summary">
+                    An end-to-end data analytics case study examining the
+                    relationship between economic development and technology
+                    adoption across European countries.
+                </p>
+            </div>
+
+            <aside class="hero-meta">
+                <p class="label">Project status</p>
+                <strong>Completed case study</strong>
+                <p>
+                    Data sourcing · validation · SQL · statistical analysis ·
+                    visualization · business interpretation
+                </p>
+            </aside>
+
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="project-shell">
+
+            <div class="section-heading">
+                <div class="section-number">01 / Overview</div>
+                <h2>From public data to business evidence.</h2>
+            </div>
+
+            <div class="intro-grid">
+
+                <div>
+                    <h3>
+                        Understanding how digitalisation and economic
+                        development move together across Europe.
+                    </h3>
+                </div>
+
+                <div>
+                    <p>
+                        This project investigates differences in technology
+                        adoption across European countries and examines the
+                        relationships that can be observed between digitalisation
+                        and economic development.
+                    </p>
+
+                    <p>
+                        The analysis follows a complete analytical workflow:
+                        defining the business question, sourcing public data,
+                        validating and preparing the data, analysing it with
+                        SQL and statistical methods, creating visualisations,
+                        and translating the results into business-oriented
+                        findings.
+                    </p>
+
+                    <div class="cta-row">
+                        <a class="cta primary"
+                           href="../../#projects">
+                            Back to portfolio
+                        </a>
+
+                        <a class="cta secondary"
+                           href="https://github.com/sinosk31-a11y"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="project-shell">
+
+            <div class="section-heading">
+                <div class="section-number">02 / Analysis</div>
+                <h2>What the project examines.</h2>
+            </div>
+
+            <div class="cards">
+
+                <article class="card">
+                    <span class="card-number">01</span>
+                    <h3>Technology adoption</h3>
+                    <p>
+                        Measures of digitalisation and technology adoption
+                        across European countries.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="card-number">02</span>
+                    <h3>Economic development</h3>
+                    <p>
+                        Economic indicators used to establish comparable
+                        country-level context.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="card-number">03</span>
+                    <h3>Relationships</h3>
+                    <p>
+                        Statistical relationships between digitalisation and
+                        economic development indicators.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="card-number">04</span>
+                    <h3>Country comparison</h3>
+                    <p>
+                        Cross-country differences, patterns and relative
+                        performance.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="card-number">05</span>
+                    <h3>Data validation</h3>
+                    <p>
+                        Checks for consistency, completeness and analytical
+                        suitability before interpretation.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="card-number">06</span>
+                    <h3>Business interpretation</h3>
+                    <p>
+                        Translating analytical findings into clear,
+                        decision-oriented observations.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="project-shell">
+
+            <div class="section-heading">
+                <div class="section-number">03 / Workflow</div>
+                <h2>How the analysis was built.</h2>
+            </div>
+
+            <div class="workflow">
+
+                <div class="step">
+                    <span>01</span>
+                    <strong>Define the question</strong>
+                </div>
+
+                <div class="step">
+                    <span>02</span>
+                    <strong>Source &amp; validate data</strong>
+                </div>
+
+                <div class="step">
+                    <span>03</span>
+                    <strong>Analyse with SQL &amp; statistics</strong>
+                </div>
+
+                <div class="step">
+                    <span>04</span>
+                    <strong>Visualise &amp; communicate</strong>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="project-shell">
+
+            <div class="section-heading">
+                <div class="section-number">04 / Stack</div>
+                <h2>Tools used to turn data into insight.</h2>
+            </div>
+
+            <div class="cards">
+
+                <article class="card">
+                    <span class="card-number">SQL</span>
+                    <h3>Structured analysis</h3>
+                    <p>
+                        Querying, filtering, aggregation and analytical
+                        preparation of structured data.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="card-number">PYTHON</span>
+                    <h3>Analytical workflow</h3>
+                    <p>
+                        Data preparation, statistical analysis and
+                        reproducible analytical work.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <span class="card-number">VISUAL</span>
+                    <h3>Data storytelling</h3>
+                    <p>
+                        Visual communication designed to make patterns,
+                        relationships and findings easier to understand.
+                    </p>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="project-shell footer-inner">
+        <p>© 2026 Sinothile Mpofu · Project 01 — Digital Europe</p>
+        <p><a href="#top">Back to top ↑</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
