@@ -504,35 +504,58 @@ footer {
 }
 
 
+/* FOREST GOLD — VISIBLE, CONTINUOUS 3D ORBITS */
 
-/* FOREST GOLD — HIGH-VISIBILITY 3D ORBITS */
+.hero-scene {
+  perspective: 1000px;
+  perspective-origin: 65% 50%;
+}
+
 .scene-orbit {
-  transform-origin: center center;
+  transform-origin: 50% 50%;
   transform-style: preserve-3d;
   backface-visibility: visible;
   will-change: transform;
 }
 
-/* Inner ring: fast */
+/* Inner ring: fast diagonal orbit */
 .orbit-one {
-  animation: forestOrbitOne 2.4s linear infinite !important;
+  animation: orbitInner 3s linear infinite !important;
 }
 
-/* Middle ring: faster, reverse direction */
+/* Middle ring: opposing orbital direction */
 .orbit-two {
-  animation: forestOrbitTwo 1.8s linear infinite !important;
+  animation: orbitMiddle 4.2s linear infinite !important;
 }
 
-/* Outer ring: full vertical 360-degree orbit */
+/* Outer ring: vertical 360-degree orbit */
 .orbit-three {
-  animation: forestVerticalOrbit 3.6s linear infinite !important;
+  animation: orbitVertical 5s linear infinite !important;
 }
 
-@keyframes forestVerticalOrbit {
+@keyframes orbitInner {
   from {
-    transform: rotateX(12deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateX(55deg) rotateY(12deg) rotateZ(0deg);
   }
   to {
-    transform: rotateX(12deg) rotateY(360deg) rotateZ(0deg);
+    transform: rotateX(55deg) rotateY(12deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbitMiddle {
+  from {
+    transform: rotateX(68deg) rotateY(-10deg) rotateZ(360deg);
+  }
+  to {
+    transform: rotateX(68deg) rotateY(-10deg) rotateZ(0deg);
+  }
+}
+
+@keyframes orbitVertical {
+  from {
+    transform: rotateX(8deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(8deg) rotateY(360deg) rotateZ(0deg);
   }
 }
