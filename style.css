@@ -528,26 +528,47 @@ footer {
   animation: orbitMiddle 4.2s linear infinite !important;
 }
 
-/* Outer ring: vertical 360-degree orbit */
+
+/* Smaller, slower vertical orbit */
 .orbit-three {
-  animation: orbitVertical 5s linear infinite !important;
+  width: min(30vw, 440px) !important;
+  height: min(30vw, 440px) !important;
+  animation: orbitVertical 12s linear infinite !important;
 }
 
 @keyframes orbitInner {
-  from {
-    transform: rotateX(55deg) rotateY(12deg) rotateZ(0deg);
+  0% {
+    transform: rotateX(38deg) rotateY(-25deg) rotateZ(0deg);
   }
-  to {
-    transform: rotateX(55deg) rotateY(12deg) rotateZ(360deg);
+  25% {
+    transform: rotateX(62deg) rotateY(15deg) rotateZ(90deg);
+  }
+  50% {
+    transform: rotateX(78deg) rotateY(35deg) rotateZ(180deg);
+  }
+  75% {
+    transform: rotateX(55deg) rotateY(-15deg) rotateZ(270deg);
+  }
+  100% {
+    transform: rotateX(38deg) rotateY(-25deg) rotateZ(360deg);
   }
 }
 
 @keyframes orbitMiddle {
-  from {
-    transform: rotateX(68deg) rotateY(-10deg) rotateZ(360deg);
+  0% {
+    transform: rotateX(72deg) rotateY(20deg) rotateZ(360deg);
   }
-  to {
-    transform: rotateX(68deg) rotateY(-10deg) rotateZ(0deg);
+  25% {
+    transform: rotateX(48deg) rotateY(-25deg) rotateZ(270deg);
+  }
+  50% {
+    transform: rotateX(30deg) rotateY(-35deg) rotateZ(180deg);
+  }
+  75% {
+    transform: rotateX(55deg) rotateY(15deg) rotateZ(90deg);
+  }
+  100% {
+    transform: rotateX(72deg) rotateY(20deg) rotateZ(0deg);
   }
 }
 
