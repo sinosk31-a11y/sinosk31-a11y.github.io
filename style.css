@@ -504,16 +504,35 @@ footer {
 }
 
 
-/* FOREST GOLD — FASTER GLOBE ORBITS */
+
+/* FOREST GOLD — HIGH-VISIBILITY 3D ORBITS */
+.scene-orbit {
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  will-change: transform;
+}
+
+/* Inner ring: fast */
 .orbit-one {
-  animation: forestOrbitOne 3.8s linear infinite !important;
+  animation: forestOrbitOne 2.4s linear infinite !important;
 }
 
+/* Middle ring: faster, reverse direction */
 .orbit-two {
-  animation: forestOrbitTwo 2.7s linear infinite !important;
+  animation: forestOrbitTwo 1.8s linear infinite !important;
 }
 
+/* Outer ring: full vertical 360-degree orbit */
 .orbit-three {
-  animation: forestOrbitThree 6.5s linear infinite !important;
+  animation: forestVerticalOrbit 3.6s linear infinite !important;
 }
 
+@keyframes forestVerticalOrbit {
+  from {
+    transform: rotateX(12deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(12deg) rotateY(360deg) rotateZ(0deg);
+  }
+}
