@@ -337,3 +337,168 @@ footer {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =========================================
+   FOREST GOLD — MORE VISIBLE GLOBE MOTION
+   Append to the VERY BOTTOM of style.css
+   ========================================= */
+
+:root {
+  --solar-rgb: 212, 175, 55;
+  --plasma-rgb: 111, 157, 102;
+  --space-blue: #183323;
+}
+
+/* Make the globe's atmosphere more visible */
+.hero-scene {
+  background:
+    radial-gradient(
+      ellipse at 70% 52%,
+      rgba(212, 175, 55, 0.23),
+      transparent 29%
+    ),
+    radial-gradient(
+      ellipse at 73% 60%,
+      rgba(47, 105, 68, 0.42),
+      transparent 43%
+    ),
+    linear-gradient(125deg, #07100c, #102319 58%, #07100c);
+}
+
+/* Larger, brighter orbital rings */
+.scene-orbit {
+  border-color: rgba(212, 175, 55, 0.65) !important;
+  box-shadow:
+    0 0 9px rgba(212, 175, 55, 0.20),
+    inset 0 0 9px rgba(212, 175, 55, 0.08);
+  will-change: transform;
+}
+
+.orbit-one {
+  animation: forestOrbitOne 8s linear infinite !important;
+}
+
+.orbit-two {
+  border-color: rgba(239, 215, 125, 0.85) !important;
+  animation: forestOrbitTwo 5s linear infinite !important;
+}
+
+.orbit-three {
+  border-color: rgba(117, 185, 126, 0.72) !important;
+  animation: forestOrbitThree 11s linear infinite !important;
+}
+
+@keyframes forestOrbitOne {
+  from { transform: rotateX(67deg) rotateZ(-18deg); }
+  to   { transform: rotateX(67deg) rotateZ(342deg); }
+}
+
+@keyframes forestOrbitTwo {
+  from { transform: rotateX(67deg) rotateZ(342deg); }
+  to   { transform: rotateX(67deg) rotateZ(-18deg); }
+}
+
+@keyframes forestOrbitThree {
+  from { transform: rotateX(58deg) rotateY(12deg) rotateZ(0deg); }
+  to   { transform: rotateX(58deg) rotateY(12deg) rotateZ(360deg); }
+}
+
+/* Give the solar core a stronger breathing pulse */
+.scene-core {
+  animation: forestCorePulse 2.2s ease-in-out infinite !important;
+  filter:
+    drop-shadow(0 0 12px rgba(212, 175, 55, 0.8))
+    drop-shadow(0 0 35px rgba(212, 175, 55, 0.38));
+  will-change: transform, filter;
+}
+
+.scene-core span {
+  animation: forestCoreInner 1.5s ease-in-out infinite alternate !important;
+  background: radial-gradient(
+    circle,
+    #fff6c7 0%,
+    #e7c65e 18%,
+    #b68a26 42%,
+    rgba(47, 105, 68, 0.12) 72%,
+    transparent 100%
+  ) !important;
+}
+
+@keyframes forestCorePulse {
+  0%, 100% {
+    transform: scale(0.88);
+    opacity: 0.78;
+  }
+  50% {
+    transform: scale(1.13);
+    opacity: 1;
+  }
+}
+
+@keyframes forestCoreInner {
+  from { opacity: 0.72; }
+  to   { opacity: 1; }
+}
+
+/* Make energy beams visibly travel and flash */
+.scene-beam {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.15),
+    #f3dc82,
+    rgba(212, 175, 55, 0.15),
+    transparent
+  ) !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
+  transform-origin: center;
+  animation: forestBeamTravel 2.8s ease-in-out infinite alternate !important;
+}
+
+.beam-two { animation-delay: -0.9s !important; }
+.beam-three { animation-delay: -1.8s !important; }
+
+@keyframes forestBeamTravel {
+  0% {
+    opacity: 0.25;
+    filter: brightness(0.8);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1.8);
+  }
+}
+
+/* Nodes should blink like active data points */
+.scene-node {
+  background: #e7c65e !important;
+  box-shadow:
+    0 0 7px #e7c65e,
+    0 0 18px rgba(212, 175, 55, 0.75) !important;
+  animation: forestNodeBlink 1.8s ease-in-out infinite alternate;
+}
+
+.node-two { animation-delay: -0.6s; }
+.node-three { animation-delay: -1.2s; }
+
+@keyframes forestNodeBlink {
+  from {
+    opacity: 0.45;
+    scale: 0.8;
+  }
+  to {
+    opacity: 1;
+    scale: 1.35;
+  }
+}
+
+/* Keep motion enabled unless the visitor requests reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scene-orbit,
+  .scene-core,
+  .scene-core span,
+  .scene-beam,
+  .scene-node {
+    animation: none !important;
+  }
+}
