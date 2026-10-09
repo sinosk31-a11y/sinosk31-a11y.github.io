@@ -1,59 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Digital Europe | Data Analytics Project</title>
-
-    <meta
-        name="description"
-        content="Digital Europe — an analysis of economic development and technology adoption across EU countries using Eurostat data."
-    >
-
-
-    <style>
 :root{
-  --p-bg:#070908;--p-bg2:#0d110f;--p-panel:rgba(18,22,20,.78);--p-panel2:rgba(255,255,255,.035);
-  --p-ink:#f3eee5;--p-muted:#aaa79f;--p-dim:#77756f;--p-line:rgba(243,238,229,.12);--p-line2:rgba(243,238,229,.22);
-  --p-accent:#ff6547;--p-accent-soft:rgba(255,101,71,.13);--p-max:1180px;
+  --p-bg:#07100c;--p-bg2:#0c1a14;--p-panel:rgba(15,28,21,.78);--p-panel2:rgba(255,255,255,.035);
+  --p-ink:#f3eedc;--p-muted:#a6ac9d;--p-dim:#78806f;--p-line:rgba(243,238,220,.12);--p-line2:rgba(243,238,220,.22);
+  --p-accent:#d4af37;--p-accent-soft:rgba(212,175,55,.13);--p-max:1180px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;color:var(--p-ink);background:var(--p-bg);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   line-height:1.65;overflow-x:hidden;
-  background-image:radial-gradient(circle at 78% 10%,rgba(255,101,71,.09),transparent 24%),radial-gradient(circle at 8% 42%,rgba(71,105,98,.08),transparent 28%),linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px);
+  background-image:radial-gradient(circle at 78% 10%,rgba(212,175,55,.09),transparent 24%),radial-gradient(circle at 8% 42%,rgba(31,90,67,.12),transparent 28%),linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px);
   background-size:auto,auto,72px 72px,72px 72px;background-attachment:fixed;
 }
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
 a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--p-accent);outline-offset:3px}
 .project-page{width:min(calc(100% - 48px),var(--p-max));margin:0 auto;padding:0 0 70px;position:relative}
-.project-page::before{content:"";position:fixed;width:520px;height:520px;border:1px solid rgba(255,101,71,.09);border-radius:50%;right:-190px;top:18vh;box-shadow:0 0 0 75px rgba(255,101,71,.018),0 0 0 150px rgba(255,101,71,.012);pointer-events:none;z-index:-1}
+.project-page::before{content:"";position:fixed;width:520px;height:520px;border:1px solid rgba(212,175,55,.09);border-radius:50%;right:-190px;top:18vh;box-shadow:0 0 0 75px rgba(212,175,55,.018),0 0 0 150px rgba(212,175,55,.012);pointer-events:none;z-index:-1}
 
 /* navigation */
-.project-nav{position:sticky;top:0;z-index:40;margin:0 -24px;padding:0 24px;background:rgba(7,9,8,.82);border-bottom:1px solid var(--p-line);backdrop-filter:blur(18px)}
+.project-nav{position:sticky;top:0;z-index:40;margin:0 -24px;padding:0 24px;background:rgba(7,16,12,.82);border-bottom:1px solid var(--p-line);backdrop-filter:blur(18px)}
 .project-nav-inner{width:min(100%,var(--p-max));min-height:68px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:28px}
 .project-brand{font-weight:760;font-size:13px;text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
-.project-brand::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--p-accent);margin-right:9px;box-shadow:0 0 16px rgba(255,101,71,.55)}
+.project-brand::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--p-accent);margin-right:9px;box-shadow:0 0 16px rgba(212,175,55,.55)}
 .project-nav-links{display:flex;gap:27px;align-items:center}
 .project-nav-links a{font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--p-muted);padding:7px 0;transition:color .25s ease,transform .25s ease}
 .project-nav-links a:hover{color:var(--p-ink);transform:translateY(-1px)}
 
 /* hero */
 .project-header{position:relative;min-height:72vh;display:grid;align-content:center;padding:96px 0 76px;border-bottom:1px solid var(--p-line);overflow:hidden}
-.project-header::before{content:"";position:absolute;width:510px;height:510px;right:-155px;top:7%;border:1px solid rgba(255,101,71,.13);border-radius:50%;box-shadow:0 0 0 72px rgba(255,101,71,.021),0 0 0 145px rgba(255,101,71,.012);animation:orbit 18s linear infinite}
-.project-header::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 77% 48%,rgba(255,101,71,.10),transparent 18%),radial-gradient(circle at 67% 56%,rgba(255,235,190,.045),transparent 10%);pointer-events:none}
+.project-header::before{content:"";position:absolute;width:510px;height:510px;right:-155px;top:7%;border:1px solid rgba(212,175,55,.13);border-radius:50%;box-shadow:0 0 0 72px rgba(212,175,55,.021),0 0 0 145px rgba(212,175,55,.012);animation:orbit 18s linear infinite}
+.project-header::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 77% 48%,rgba(212,175,55,.10),transparent 18%),radial-gradient(circle at 67% 56%,rgba(240,215,122,.05),transparent 10%);pointer-events:none}
 .project-label{position:relative;z-index:2;color:var(--p-accent);font-size:9px;font-weight:850;letter-spacing:.19em;text-transform:uppercase;margin-bottom:19px}
 .project-header h1{position:relative;z-index:2;max-width:900px;font-size:clamp(3.7rem,7.2vw,7.2rem);line-height:.88;letter-spacing:-.068em;margin:0 0 29px;font-weight:820}
 .project-header h1::after{content:"evidence.";display:block;color:var(--p-accent);font-size:.78em;margin-top:.075em;letter-spacing:-.06em}
 .project-header>p{position:relative;z-index:2;max-width:700px;color:var(--p-muted);font-size:clamp(.98rem,1.25vw,1.12rem);line-height:1.7;margin:0}
 .project-meta{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:34px;max-width:900px}
 .meta-card,.metric,.finding,.chart-card,.method-card{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.042),rgba(255,255,255,.012));border:1px solid var(--p-line);transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s ease,background .35s ease,box-shadow .35s ease}
-.meta-card::before,.metric::before,.finding::before,.method-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,101,71,.10),transparent 34%);opacity:0;transition:opacity .3s ease}
+.meta-card::before,.metric::before,.finding::before,.method-card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(212,175,55,.10),transparent 34%);opacity:0;transition:opacity .3s ease}
 .meta-card:hover::before,.metric:hover::before,.finding:hover::before,.method-card:hover::before{opacity:1}
 .meta-card{padding:17px 18px;min-height:94px}
-.meta-card:hover,.metric:hover,.finding:hover,.method-card:hover{transform:translateY(-3px);border-color:rgba(255,101,71,.30);box-shadow:0 16px 42px rgba(0,0,0,.14)}
+.meta-card:hover,.metric:hover,.finding:hover,.method-card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,.30);box-shadow:0 16px 42px rgba(0,0,0,.14)}
 .meta-card span{display:block;color:var(--p-dim);font-size:8px;text-transform:uppercase;letter-spacing:.15em;margin-bottom:7px;font-weight:800}
 .meta-card strong{font-size:13px;line-height:1.35;display:block}
 
@@ -62,7 +48,7 @@ a{color:inherit}
 .section h2{font-size:clamp(2.35rem,4.8vw,4.65rem);line-height:.96;letter-spacing:-.055em;margin:0 0 18px;max-width:850px}
 .section-intro{max-width:790px;color:var(--p-muted);line-height:1.78;margin:0 0 17px}
 .question-list{max-width:900px;margin:28px 0 0;padding-left:23px}
-.question-list li{padding:10px 0 10px 7px;border-bottom:1px solid var(--p-line);color:#d5d1c9}
+.question-list li{padding:10px 0 10px 7px;border-bottom:1px solid var(--p-line);color:#d9d6c4}
 .question-list li::marker{color:var(--p-accent);font-weight:800}
 
 /* cards */
@@ -72,7 +58,7 @@ a{color:inherit}
 .metric-label{color:var(--p-muted);line-height:1.48;font-size:.84rem;position:relative}
 .findings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:30px}
 .finding{padding:24px;min-height:215px;position:relative;overflow:hidden}
-.finding::after{content:"";position:absolute;width:110px;height:110px;right:-52px;bottom:-52px;border:1px solid rgba(255,101,71,.20);border-radius:50%;transition:transform .5s ease}
+.finding::after{content:"";position:absolute;width:110px;height:110px;right:-52px;bottom:-52px;border:1px solid rgba(212,175,55,.20);border-radius:50%;transition:transform .5s ease}
 .finding:hover::after{transform:scale(1.45)}
 .finding-number{position:relative;color:var(--p-accent);font-weight:800;font-size:8px;letter-spacing:.16em;margin-bottom:24px}
 .finding h3{position:relative;margin:0 0 10px;font-size:1.2rem;letter-spacing:-.02em}
@@ -81,7 +67,7 @@ a{color:inherit}
 /* charts */
 .chart-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:32px}
 .chart-card{padding:9px;overflow:hidden}
-.chart-card:hover{transform:translateY(-4px);border-color:rgba(255,101,71,.34);box-shadow:0 22px 60px rgba(0,0,0,.20)}
+.chart-card:hover{transform:translateY(-4px);border-color:rgba(212,175,55,.34);box-shadow:0 22px 60px rgba(0,0,0,.20)}
 .chart-card::after{content:"";position:absolute;inset:9px;pointer-events:none;border:1px solid rgba(255,255,255,.035)}
 .chart-card img{display:block;width:100%;height:auto;background:#fff;transition:transform .55s cubic-bezier(.2,.8,.2,1),filter .4s ease}
 .chart-card:hover img{transform:scale(1.012);filter:contrast(1.015)}
@@ -93,17 +79,17 @@ a{color:inherit}
 .method-card{padding:22px;min-height:158px;overflow:hidden}
 .method-card h3{position:relative;margin:0 0 10px;font-size:1rem}
 .method-card p{position:relative;color:var(--p-muted);line-height:1.62;margin:0;font-size:.88rem}
-.limitation-box{background:linear-gradient(145deg,rgba(255,101,71,.065),rgba(255,255,255,.014));border:1px solid rgba(255,101,71,.20);border-left:2px solid var(--p-accent);padding:21px 24px;margin-top:26px;color:#d7d2c9}
+.limitation-box{background:linear-gradient(145deg,rgba(212,175,55,.065),rgba(255,255,255,.014));border:1px solid rgba(212,175,55,.20);border-left:2px solid var(--p-accent);padding:21px 24px;margin-top:26px;color:#dcd9c8}
 .limitation-box p{margin:0;line-height:1.72}
 
 /* source / actions */
 .source-list{list-style:none;padding:0;margin:25px 0;max-width:900px}
 .source-list li{padding:12px 0;border-bottom:1px solid var(--p-line);color:var(--p-muted)}
-.source-list a{color:var(--p-ink);text-decoration-color:rgba(255,101,71,.55);text-underline-offset:4px}
+.source-list a{color:var(--p-ink);text-decoration-color:rgba(212,175,55,.55);text-underline-offset:4px}
 .source-list a:hover{color:var(--p-accent)}
 .project-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
 .project-button{display:inline-flex;align-items:center;min-height:44px;padding:0 17px;border:1px solid var(--p-line2);text-decoration:none;text-transform:uppercase;font-size:8px;font-weight:850;letter-spacing:.13em;transition:.25s ease}
-.project-button:hover{background:var(--p-accent);border-color:var(--p-accent);color:#120b08;transform:translateY(-2px)}
+.project-button:hover{background:var(--p-accent);border-color:var(--p-accent);color:#07100c;transform:translateY(-2px)}
 
 /* footer */
 .project-footer{padding:38px 0 8px;color:var(--p-dim);font-size:10px;display:flex;justify-content:space-between;gap:20px}
@@ -135,704 +121,3 @@ a{color:inherit}
   .project-footer{flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project-page *{animation:none!important;transition:none!important}.project-header::before{animation:none}}
-</style>
-</head>
-
-<body>
-
-    <nav class="project-nav" aria-label="Project navigation">
-        <div class="project-nav-inner">
-            <a class="project-brand" href="../../#home">Sinothile Mpofu</a>
-            <div class="project-nav-links">
-                <a href="#overview">Overview</a>
-                <a href="#results">Results</a>
-                <a href="#visuals">Visuals</a>
-                <a href="#sources">Sources</a>
-                <a href="../../#projects">Portfolio</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="project-page">
-
-        <!-- PROJECT HEADER -->
-        <header class="project-header">
-
-            <div class="project-label">
-                Project 01 · Data Analytics Case Study
-            </div>
-
-            <h1>
-                Digital Europe
-            </h1>
-
-            <p>
-                Exploring the relationship between economic development
-                and technology adoption across the European Union.
-            </p>
-
-            <div class="project-meta">
-
-                <div class="meta-card">
-                    <span>Population</span>
-                    <strong>27 EU countries</strong>
-                </div>
-
-                <div class="meta-card">
-                    <span>Period</span>
-                    <strong>2023–2025</strong>
-                </div>
-
-                <div class="meta-card">
-                    <span>Source</span>
-                    <strong>Eurostat</strong>
-                </div>
-
-                <div class="meta-card">
-                    <span>Tools</span>
-                    <strong>SQL · Python · GitHub</strong>
-                </div>
-
-            </div>
-
-        </header>
-
-
-        <!-- BUSINESS PROBLEM -->
-        <section class="section" id="overview">
-
-            <h2>The Business Question</h2>
-
-            <p class="section-intro">
-                Organisations investing in digital transformation need to
-                understand how technology adoption differs between markets
-                and how those patterns relate to broader economic conditions.
-                This project examines publicly available European data to
-                identify measurable patterns in economic development,
-                enterprise technology adoption, digital capability and the
-                ICT workforce.
-            </p>
-
-            <p class="section-intro">
-                The analysis focuses on association rather than causation.
-                The purpose is to identify patterns that can support further
-                investigation and evidence-based decision-making.
-            </p>
-
-        </section>
-
-
-        <!-- QUESTIONS -->
-        <section class="section">
-
-            <h2>Research Questions</h2>
-
-            <ol class="question-list">
-                <li>
-                    How does GDP per capita vary across EU countries?
-                </li>
-
-                <li>
-                    How widely are enterprises adopting artificial intelligence?
-                </li>
-
-                <li>
-                    How widely are enterprises using cloud computing services?
-                </li>
-
-                <li>
-                    How does digital-skills prevalence differ across countries?
-                </li>
-
-                <li>
-                    How does the ICT specialist workforce differ across countries?
-                </li>
-
-                <li>
-                    What relationships can be observed between GDP per capita
-                    and technology-adoption indicators?
-                </li>
-
-                <li>
-                    How did the selected indicators change between 2023 and 2025?
-                </li>
-            </ol>
-
-        </section>
-
-
-        <!-- DATA -->
-        <section class="section">
-
-            <h2>Data & Methodology</h2>
-
-            <p class="section-intro">
-                The project uses five Eurostat datasets covering economic
-                development, enterprise technology adoption, digital skills
-                and the ICT workforce.
-            </p>
-
-            <div class="methodology">
-
-                <div class="method-card">
-                    <h3>01 · Economic</h3>
-                    <p>
-                        GDP per capita measured in purchasing power standards
-                        (PPS) per inhabitant.
-                    </p>
-                </div>
-
-                <div class="method-card">
-                    <h3>02 · Enterprise Technology</h3>
-                    <p>
-                        Enterprise adoption of artificial intelligence and
-                        paid cloud-computing services.
-                    </p>
-                </div>
-
-                <div class="method-card">
-                    <h3>03 · Digital Capability</h3>
-                    <p>
-                        Individuals with at least basic digital skills and
-                        ICT specialists as a percentage of employment.
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="methodology">
-
-                <div class="method-card">
-                    <h3>Data Cleaning</h3>
-                    <p>
-                        Raw Eurostat TSV files were preserved separately.
-                        Selected variables were filtered to the EU-27
-                        analytical population and converted into structured
-                        CSV datasets.
-                    </p>
-                </div>
-
-                <div class="method-card">
-                    <h3>Derived Metrics</h3>
-                    <p>
-                        2025 values, 2023–2025 changes and Pearson
-                        correlations were calculated from the cleaned data.
-                    </p>
-                </div>
-
-                <div class="method-card">
-                    <h3>Quality Control</h3>
-                    <p>
-                        Missing values and Eurostat status flags were checked
-                        before the analytical datasets were produced.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- KEY METRICS -->
-        <section class="section" id="results">
-
-            <h2>Key Results</h2>
-
-            <p class="section-intro">
-                The cleaned analytical dataset contains 27 EU countries.
-                The selected 2023 and 2025 indicators contain no missing
-                analytical values in the final dataset.
-            </p>
-
-            <div class="metrics-grid">
-
-                <div class="metric">
-                    <div class="metric-value">12.49 pp</div>
-                    <div class="metric-label">
-                        Average increase in enterprise AI adoption,
-                        2023–2025
-                    </div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-value">5.72 pp</div>
-                    <div class="metric-label">
-                        Average increase in enterprise cloud adoption,
-                        2023–2025
-                    </div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-value">3.40 pp</div>
-                    <div class="metric-label">
-                        Average change in digital-skills prevalence,
-                        2023–2025
-                    </div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-value">0.26 pp</div>
-                    <div class="metric-label">
-                        Average change in ICT specialists as a share
-                        of employment
-                    </div>
-                </div>
-
-            </div>
-
-            <div style="margin-top:42px;overflow:auto;border:1px solid var(--p-line);background:rgba(255,255,255,.018)">
-                <table style="width:100%;border-collapse:collapse;min-width:720px;font-size:.9rem">
-                    <thead>
-                        <tr style="text-align:left;border-bottom:1px solid var(--p-line);color:var(--p-dim);font-size:9px;letter-spacing:.13em;text-transform:uppercase">
-                            <th style="padding:14px 16px">Indicator</th><th style="padding:14px 16px">Highest, 2025</th><th style="padding:14px 16px">Lowest, 2025</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">GDP per capita (PPS)</td><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">Luxembourg — 99,621.3</td><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">Bulgaria — 28,332.0</td></tr>
-                        <tr><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">AI adoption</td><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">Denmark — 42.03%</td><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">Romania — 5.21%</td></tr>
-                        <tr><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">Cloud adoption</td><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">Finland — 79.21%</td><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">Bulgaria — 17.83%</td></tr>
-                        <tr><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">Digital skills</td><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">Netherlands — 83.61%</td><td style="padding:14px 16px;border-bottom:1px solid var(--p-line)">Romania — 31.84%</td></tr>
-                        <tr><td style="padding:14px 16px">ICT specialists</td><td style="padding:14px 16px">Sweden — 8.9%</td><td style="padding:14px 16px">Greece — 2.5%</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </section>
-
-
-        <!-- FINDINGS -->
-        <section class="section">
-
-            <h2>What the Analysis Shows</h2>
-
-            <div class="findings">
-
-                <article class="finding">
-
-                    <div class="finding-number">
-                        FINDING 01
-                    </div>
-
-                    <h3>AI adoption increased substantially</h3>
-
-                    <p>
-                        Across the 27-country analytical population,
-                        enterprise AI adoption increased by an average
-                        of 12.49 percentage points between 2023 and 2025.
-                    </p>
-
-                </article>
-
-
-                <article class="finding">
-
-                    <div class="finding-number">
-                        FINDING 02
-                    </div>
-
-                    <h3>Cloud adoption also expanded</h3>
-
-                    <p>
-                        Enterprise cloud adoption increased by an average
-                        of 5.72 percentage points over the same period,
-                        although the magnitude of change varied considerably
-                        between countries.
-                    </p>
-
-                </article>
-
-
-                <article class="finding">
-
-                    <div class="finding-number">
-                        FINDING 03
-                    </div>
-
-                    <h3>Digital capability changed unevenly</h3>
-
-                    <p>
-                        Digital-skills prevalence increased by an average
-                        of 3.40 percentage points, with country-level changes
-                        differing substantially.
-                    </p>
-
-                </article>
-
-
-                <article class="finding">
-
-                    <div class="finding-number">
-                        FINDING 04
-                    </div>
-
-                    <h3>Economic development shows positive associations</h3>
-
-                    <p>
-                        GDP per capita had positive Pearson correlations
-                        with AI adoption, cloud adoption, digital skills
-                        and ICT specialists in the 2025 cross-country data.
-                        These relationships describe association, not
-                        causation.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- CORRELATIONS -->
-        <section class="section">
-
-            <h2>Relationship Analysis</h2>
-
-            <p class="section-intro">
-                Pearson correlation was used to examine linear association
-                between GDP per capita and each technology-related indicator
-                across the 27 countries in 2025.
-            </p>
-
-            <div class="metrics-grid">
-
-                <div class="metric">
-                    <div class="metric-value">0.505</div>
-                    <div class="metric-label">
-                        GDP vs AI adoption
-                    </div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-value">0.404</div>
-                    <div class="metric-label">
-                        GDP vs cloud adoption
-                    </div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-value">0.522</div>
-                    <div class="metric-label">
-                        GDP vs digital skills
-                    </div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-value">0.580</div>
-                    <div class="metric-label">
-                        GDP vs ICT specialists
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="limitation-box">
-
-                <p>
-                    <strong>Interpretation:</strong>
-                    These correlations indicate positive statistical
-                    associations within this cross-sectional dataset.
-                    They do not demonstrate that economic development
-                    causes technology adoption, or that technology adoption
-                    causes higher GDP per capita.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- VISUALIZATIONS -->
-        <section class="section" id="visuals">
-
-            <h2>Visual Analysis</h2>
-
-            <p class="section-intro">
-                The visual analysis combines country comparisons,
-                change analysis and relationship plots.
-            </p>
-
-            <div class="chart-grid">
-
-                <div class="chart-card">
-                    <img src="../../visualizations/01_gdp_per_capita.png"
-                         alt="GDP per capita by EU country in 2025">
-                    <h3>GDP per Capita</h3>
-                    <p>
-                        GDP per capita across EU countries in 2025.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/02_ai_adoption.png"
-                         alt="AI adoption by EU country">
-                    <h3>AI Adoption</h3>
-                    <p>
-                        Enterprise AI adoption across EU countries.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/03_cloud_adoption.png"
-                         alt="Cloud adoption by EU country">
-                    <h3>Cloud Adoption</h3>
-                    <p>
-                        Enterprise use of paid cloud services.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/04_digital_skills.png"
-                         alt="Digital skills by EU country">
-                    <h3>Digital Skills</h3>
-                    <p>
-                        Share of individuals with at least basic
-                        digital skills.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/05_ict_specialists.png"
-                         alt="ICT specialists by EU country">
-                    <h3>ICT Specialists</h3>
-                    <p>
-                        ICT specialists as a share of employment.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/06_gdp_vs_ai.png"
-                         alt="GDP per capita versus AI adoption">
-                    <h3>GDP vs AI Adoption</h3>
-                    <p>
-                        Cross-country relationship between GDP per capita
-                        and enterprise AI adoption.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/07_gdp_vs_cloud.png"
-                         alt="GDP per capita versus cloud adoption">
-                    <h3>GDP vs Cloud Adoption</h3>
-                    <p>
-                        Cross-country relationship between GDP per capita
-                        and enterprise cloud adoption.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/08_gdp_vs_digital_skills.png"
-                         alt="GDP per capita versus digital skills">
-                    <h3>GDP vs Digital Skills</h3>
-                    <p>
-                        Cross-country relationship between GDP per capita
-                        and digital-skills prevalence.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/09_gdp_vs_ict.png"
-                         alt="GDP per capita versus ICT specialists">
-                    <h3>GDP vs ICT Specialists</h3>
-                    <p>
-                        Cross-country relationship between GDP per capita
-                        and ICT specialists.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/10_ai_change.png"
-                         alt="Change in AI adoption from 2023 to 2025">
-                    <h3>AI Adoption Change</h3>
-                    <p>
-                        Change in enterprise AI adoption from 2023 to 2025.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/11_cloud_change.png"
-                         alt="Change in cloud adoption from 2023 to 2025">
-                    <h3>Cloud Adoption Change</h3>
-                    <p>
-                        Change in enterprise cloud adoption from 2023 to 2025.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/12_digital_skills_change.png"
-                         alt="Change in digital skills from 2023 to 2025">
-                    <h3>Digital Skills Change</h3>
-                    <p>
-                        Change in digital-skills prevalence from 2023 to 2025.
-                    </p>
-                </div>
-
-                <div class="chart-card">
-                    <img src="../../visualizations/13_ict_change.png"
-                         alt="Change in ICT specialists from 2023 to 2025">
-                    <h3>ICT Workforce Change</h3>
-                    <p>
-                        Change in ICT specialists as a share of employment.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- TOOLS -->
-        <section class="section">
-
-            <h2>Tools & Technical Workflow</h2>
-
-            <div class="methodology">
-
-                <div class="method-card">
-                    <h3>Eurostat</h3>
-                    <p>
-                        Official source for the economic and digital
-                        indicators used in the analysis.
-                    </p>
-                </div>
-
-                <div class="method-card">
-                    <h3>SQL</h3>
-                    <p>
-                        Used to structure analytical queries, compare
-                        countries, calculate changes and examine correlations.
-                    </p>
-                </div>
-
-                <div class="method-card">
-                    <h3>Python</h3>
-                    <p>
-                        Used for reproducible visualisation generation
-                        from the cleaned master dataset.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- LIMITATIONS -->
-        <section class="section">
-
-            <h2>Limitations</h2>
-
-            <div class="limitation-box">
-
-                <p>
-                    The analysis uses observational cross-country data.
-                    Correlations should therefore be interpreted as
-                    associations rather than causal effects. GDP per capita
-                    is a macroeconomic indicator and should not be interpreted
-                    as an individual's income or wealth. Eurostat status flags
-                    and methodological notes are retained in the underlying
-                    analytical files. The analysis also covers only the
-                    selected indicators and the 2023–2025 comparison period.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- SOURCES -->
-        <section class="section" id="sources">
-
-            <h2>Data Sources</h2>
-
-            <p class="section-intro">
-                All primary datasets used in this project originate from
-                Eurostat / European Commission.
-            </p>
-
-            <ul class="source-list">
-
-                <li>
-                    GDP per capita —
-                    <a href="https://ec.europa.eu/eurostat/databrowser/view/nama_10_pc/default/table?lang=en"
-                       target="_blank"
-                       rel="noopener">
-                        Eurostat dataset nama_10_pc
-                    </a>
-                </li>
-
-                <li>
-                    Artificial intelligence adoption —
-                    <a href="https://ec.europa.eu/eurostat/databrowser/view/isoc_eb_ai/default/table?lang=en"
-                       target="_blank"
-                       rel="noopener">
-                        Eurostat dataset isoc_eb_ai
-                    </a>
-                </li>
-
-                <li>
-                    Cloud computing —
-                    <a href="https://ec.europa.eu/eurostat/databrowser/view/isoc_cicce_use/default/table?lang=en"
-                       target="_blank"
-                       rel="noopener">
-                        Eurostat dataset isoc_cicce_use
-                    </a>
-                </li>
-
-                <li>
-                    Digital skills —
-                    <a href="https://ec.europa.eu/eurostat/databrowser/view/isoc_sk_dskl_i21/default/table?lang=en"
-                       target="_blank"
-                       rel="noopener">
-                        Eurostat digital-skills dataset
-                    </a>
-                </li>
-
-                <li>
-                    ICT specialists —
-                    <a href="https://ec.europa.eu/eurostat/web/digital-economy-and-society/information-data"
-                       target="_blank"
-                       rel="noopener">
-                        Eurostat Digital Economy and Society data
-                    </a>
-                </li>
-
-            </ul>
-
-            <div class="project-actions">
-
-                <a class="project-button"
-                   href="../../">
-                    ← Back to Portfolio
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <footer class="project-footer">
-
-            <p>
-                Digital Europe · Data Analytics Portfolio ·
-                Sinothile Mpofu
-            </p>
-
-        </footer>
-
-    </main>
-
-
-<script>
-(() => {
-  const cards = document.querySelectorAll('.chart-card, .finding, .metric, .meta-card, .method-card');
-  cards.forEach(card => {
-    card.addEventListener('pointermove', e => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', ((e.clientX-r.left)/r.width*100)+'%');
-      card.style.setProperty('--my', ((e.clientY-r.top)/r.height*100)+'%');
-    });
-  });
-})();
-</script>
-</body>
-</html>
