@@ -580,3 +580,54 @@ footer {
     transform: rotateX(8deg) rotateY(360deg) rotateZ(0deg);
   }
 }
+
+/* FOREST GOLD — GLOBE ORBIT + SLOWER PULSE */
+
+.scene-core {
+  right: auto !important;
+  left: 58% !important;
+  top: 55% !important;
+  translate: -50% -50%;
+  animation: forestCorePulse 4.5s ease-in-out infinite !important;
+  will-change: left, top, transform, filter;
+}
+
+/* Carry the globe around the rings in a smooth ellipse */
+.scene-core {
+  animation:
+    forestCorePulse 4.5s ease-in-out infinite,
+    globeOrbit 18s linear infinite !important;
+}
+
+@keyframes globeOrbit {
+  0% {
+    left: 30% !important;
+    top: 55% !important;
+  }
+  25% {
+    left: 58% !important;
+    top: 34% !important;
+  }
+  50% {
+    left: 80% !important;
+    top: 55% !important;
+  }
+  75% {
+    left: 58% !important;
+    top: 76% !important;
+  }
+  100% {
+    left: 30% !important;
+    top: 55% !important;
+  }
+}
+
+/* Slow the inner glow's breathing */
+.scene-core span {
+  animation: forestCoreInner 3.5s ease-in-out infinite alternate !important;
+}
+
+/* Slow the data-point blinking */
+.scene-node {
+  animation-duration: 3.5s !important;
+}
