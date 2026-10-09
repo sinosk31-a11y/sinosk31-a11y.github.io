@@ -1,19 +1,24 @@
-:root{
-  --ink:#060b18;
-  --ink-2:#111a2c;
-  --ink-3:#18243a;
-  --cream:#fff4e4;
-  --paper:#e8e5de;
-  --muted:#b1b3c3;
-  --orange:#ffb547;
-  --orange-2:#e35b36;
-  --teal:#3a2340;
-  --teal-2:#263653;
-  --line:rgba(255,244,228,.15);
-  --line-dark:rgba(6,11,24,.16);
-  --ease:cubic-bezier(.16,1,.3,1);
-  --cursor-x:50vw;
-  --cursor-y:50vh;
+:root {
+  --ink: #07100C;
+  --ink-2: #0C1A14;
+  --ink-3: #14271D;
+
+  --cream: #F3EEDC;
+  --paper: #E6E2D2;
+  --muted: #A9B5A8;
+
+  --orange: #D4AF37;
+  --orange-2: #A98220;
+
+  --teal: #203C2D;
+  --teal-2: #162A20;
+
+  --line: rgba(243, 238, 220, 0.15);
+  --line-dark: rgba(7, 16, 12, 0.18);
+
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;background:var(--ink)}
@@ -239,3 +244,96 @@ footer{background:var(--ink);border-top:1px solid var(--line);color:rgba(255,244
 .case-card:before{background:radial-gradient(circle at var(--mx) var(--my),rgba(212,175,55,.15),transparent 27%)}
 .contact-section:before{background:radial-gradient(circle at 72% 52%,rgba(18,56,42,.72),transparent 35%),radial-gradient(circle at 50% 90%,rgba(212,175,55,.15),transparent 23%)}
 
+/* =========================================
+   FOREST GOLD — PORTFOLIO THEME OVERRIDES
+   ========================================= */
+
+html,
+body {
+  background-color: var(--ink);
+}
+
+body {
+  color: var(--cream);
+}
+
+.navbar {
+  background: rgba(7, 16, 12, 0.92);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero,
+.hero-section {
+  background:
+    radial-gradient(
+      circle at 72% 42%,
+      rgba(212, 175, 55, 0.13),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 28% 75%,
+      rgba(32, 60, 45, 0.35),
+      transparent 40%
+    ),
+    var(--ink);
+  color: var(--cream);
+}
+
+.hero h1,
+.hero h2,
+.section-title {
+  color: var(--cream);
+}
+
+.hero .highlight,
+.hero .accent,
+.accent,
+.highlight {
+  color: var(--orange);
+}
+
+button,
+.btn-primary,
+.button-primary {
+  background: var(--orange);
+  color: var(--ink);
+  border-color: var(--orange);
+}
+
+button:hover,
+.btn-primary:hover,
+.button-primary:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.card,
+.project-card,
+.service-card {
+  background: var(--ink-2);
+  color: var(--cream);
+  border-color: var(--line);
+}
+
+footer {
+  background: var(--ink);
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+::selection {
+  background: var(--orange);
+  color: var(--ink);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
