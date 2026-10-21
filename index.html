@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sinothile Mpofu | Data Analytics & Software Portfolio</title>
+<style>
+:root{--bg:#060612;--ink:#eef0ff;--mute:#9aa0c8;--card:rgba(255,255,255,.055);--line:rgba(255,255,255,.12);--a:#7c5cff;--b:#00e5ff;--c:#ff3df2;--d:#b6ff3b;--grad:linear-gradient(110deg,var(--b),var(--a) 45%,var(--c));box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f2ff;--ink:#14123a;--mute:#53578a;--card:rgba(255,255,255,.65);--line:rgba(20,18,58,.14)}}
+:root[data-theme="light"]{--bg:#f3f2ff;--ink:#14123a;--mute:#53578a;--card:rgba(255,255,255,.65);--line:rgba(20,18,58,.14)}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+#net{position:fixed;inset:0;z-index:-2;width:100%;height:100%}
+.aur{position:fixed;z-index:-1;border-radius:50%;filter:blur(90px);opacity:.38;animation:fl 18s ease-in-out infinite alternate}
+.aur.x{width:46vw;height:46vw;left:-12vw;top:-8vw;background:var(--a)}.aur.y{width:38vw;height:38vw;right:-10vw;top:30vh;background:var(--b);animation-delay:-6s}.aur.z{width:34vw;height:34vw;left:30vw;bottom:-14vw;background:var(--c);animation-delay:-11s}
+@keyframes fl{to{transform:translate(6vw,8vh) scale(1.2)}}
+#spot{position:fixed;width:420px;height:420px;margin:-210px;border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(circle,rgba(124,92,255,.22),transparent 65%)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backdrop-filter:blur(18px) saturate(1.6);background:color-mix(in srgb,var(--bg) 60%,transparent);border-bottom:1px solid var(--line)}
+header div{max-width:1100px;margin:auto;padding:12px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font-weight:800;letter-spacing:.04em}.logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{display:flex;gap:20px;font-size:14px;flex-wrap:wrap}nav a{color:var(--mute);text-decoration:none;transition:.3s}nav a:hover{color:var(--ink);text-shadow:0 0 14px var(--b)}
+main{max-width:1100px;margin:auto;padding:0 22px}section{padding:90px 0 20px}
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding-top:50px}
+.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--card);backdrop-filter:blur(10px);padding:6px 14px;border-radius:99px;font-size:13px;color:var(--mute);width:fit-content}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--d);box-shadow:0 0 12px var(--d);animation:pu 1.6s infinite}@keyframes pu{50%{opacity:.3}}
+h1{font-size:clamp(2.6rem,7.4vw,5.6rem);line-height:1.02;letter-spacing:-.03em;margin:22px 0 14px;font-weight:800}
+.g{background:var(--grad);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}@keyframes sh{to{background-position:-220% 0}}
+.lead{max-width:640px;color:var(--mute);font-size:1.12rem;min-height:5.2em;transition:opacity .3s}
+.roles{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.roles button,.btn{font:inherit;font-weight:600;font-size:14px;color:var(--ink);cursor:pointer;border:1px solid var(--line);background:var(--card);backdrop-filter:blur(10px);padding:10px 18px;border-radius:99px;transition:.3s;text-decoration:none;position:relative;overflow:hidden}
+.roles button:hover,.btn:hover{transform:translateY(-3px);border-color:var(--b);box-shadow:0 8px 28px -8px var(--b)}
+.roles button.on{background:var(--grad);border-color:transparent;color:#fff;box-shadow:0 8px 30px -8px var(--a)}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:.7s}.btn:hover::after{left:140%}
+.btn.p{background:var(--grad);border-color:transparent;color:#fff}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:46px}
+.card{position:relative;border:1px solid var(--line);background:var(--card);backdrop-filter:blur(16px) saturate(1.4);border-radius:22px;padding:22px;transition:transform .25s,border-color .3s,box-shadow .3s;transform-style:preserve-3d;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.16),transparent 45%);opacity:0;transition:.3s;pointer-events:none}
+.card:hover{border-color:rgba(0,229,255,.5);box-shadow:0 20px 60px -25px var(--a)}.card:hover::before{opacity:1}
+.num{font-size:2.3rem;font-weight:800}.lab{font-size:13px;color:var(--mute)}
+h2{font-size:clamp(1.9rem,4.4vw,3rem);letter-spacing:-.02em;line-height:1.1;margin:8px 0 12px}
+.k{font:600 12px/1 ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--b)}
+.sub{color:var(--mute);max-width:640px;margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.case{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;gap:26px;align-items:center}
+@media(max-width:800px){.case{grid-template-columns:1fr}}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tags span{font:12px ui-monospace,Menlo,monospace;padding:4px 11px;border-radius:99px;border:1px solid var(--line);color:var(--mute)}
+.bar{margin:11px 0}.bar div{display:flex;justify-content:space-between;font-size:13px;color:var(--mute)}.bar b{color:var(--ink);font-family:ui-monospace,Menlo,monospace}
+.bar i{display:block;height:9px;border-radius:9px;background:rgba(255,255,255,.08);margin-top:5px;overflow:hidden}.bar i s{display:block;height:100%;width:0;border-radius:9px;background:var(--grad);transition:width 1.4s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 14px var(--a)}
+.term{font:13px/1.7 ui-monospace,Menlo,Consolas,monospace;background:#05050f;color:#cfd3ff;border-radius:14px;padding:18px;border:1px solid var(--line);min-height:190px;white-space:pre-wrap}
+.term u{color:var(--c);text-decoration:none}.term em{color:var(--d);font-style:normal}.term q{color:var(--b);quotes:none}
+.dots{display:flex;gap:6px;margin-bottom:10px}.dots i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
+.sk{display:flex;gap:9px;flex-wrap:wrap}.sk span{padding:8px 15px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:14px;transition:.4s}
+.sk span.hl{border-color:var(--b);box-shadow:0 0 22px -4px var(--b);color:#fff;background:linear-gradient(120deg,rgba(0,229,255,.25),rgba(124,92,255,.3));transform:translateY(-3px)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font:13px ui-monospace,Menlo,monospace}.flow span{padding:7px 12px;border-radius:10px;background:var(--card);border:1px solid var(--line)}.flow em{color:var(--c);font-style:normal}
+.rv{opacity:0;transform:translateY(34px) scale(.98);filter:blur(6px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}.rv.in{opacity:1;transform:none;filter:none}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:70px 0 40px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+<body>
+<canvas id="net"></canvas><div class="aur x"></div><div class="aur y"></div><div class="aur z"></div><div id="spot"></div>
+<header><div><span class="logo">SINOTHILE<b>.MPOFU</b></span>
+<nav><a href="#work">Work</a><a href="#method">Method</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav></div></header>
+<main>
+<section class="hero">
+<span class="pill"><i></i>Open to data, analytics and engineering roles</span>
+<h1>Data that <span class="g">ships</span>.<br>Insight that <span class="g">lands</span>.</h1>
+<p class="lead" id="lead"></p>
+<div class="roles" id="roles">
+<button class="on" data-r="0">Data Analyst</button><button data-r="1">Data Engineer</button><button data-r="2">Software Developer</button><button data-r="3">BI Specialist</button></div>
+<div class="cta"><a class="btn p" href="#work">Explore case studies</a><a class="btn" href="https://www.linkedin.com/in/sinothile-mpofu-74a01821a" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn" href="https://github.com/sinosk31-a11y" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+<div class="stats">
+<div class="card"><div class="num" data-n="3" data-s="+">0</div><div class="lab">years in enterprise tech support</div></div>
+<div class="card"><div class="num" data-n="2">0</div><div class="lab">end-to-end case studies</div></div>
+<div class="card"><div class="num" data-n="43">0</div><div class="lab">countries analysed in retail case</div></div>
+<div class="card"><div class="num" data-n="27">0</div><div class="lab">EU states in Eurostat case</div></div>
+</div>
+</section>
+
+<section id="work">
+<div class="k rv">01 / selected work</div><h2 class="rv">Two cases. <span class="g">Real data.</span> Real questions.</h2>
+<p class="sub rv">Each case runs from a business question to prepared data, SQL, statistics, visuals and an honest interpretation of what the data can and cannot say.</p>
+<div class="grid">
+<div class="card case rv">
+<div><div class="k">Case 01 · Digital economy</div><h2 style="font-size:2rem">Digital Europe</h2>
+<p style="color:var(--mute)">Do wealthier EU countries adopt more AI, cloud and digital skills? Five official Eurostat datasets were cleaned, standardised and joined in DuckDB, then tested with correlation analysis. The write-up stresses association, not causation.</p>
+<div class="tags"><span>Python</span><span>Pandas</span><span>DuckDB SQL</span><span>Matplotlib</span><span>Statistics</span></div>
+<a class="btn p" href="https://sinosk31-a11y.github.io/projects/project-01/" target="_blank" rel="noopener noreferrer">Open case study →</a></div>
+<div><div class="lab" style="margin-bottom:6px">Correlation with GDP per capita (Pearson r, n = 27)</div>
+<div class="bar" data-v="58"><div>ICT specialists<b>0.58</b></div><i><s></s></i></div>
+<div class="bar" data-v="52"><div>Digital skills<b>0.52</b></div><i><s></s></i></div>
+<div class="bar" data-v="50"><div>AI adoption<b>0.50</b></div><i><s></s></i></div>
+<div class="bar" data-v="40"><div>Cloud adoption<b>0.40</b></div><i><s></s></i></div>
+<div class="lab" style="margin:16px 0 6px">Average change by 2025 (percentage points)</div>
+<div class="bar" data-v="100"><div>Enterprise AI use<b>+12.5</b></div><i><s></s></i></div>
+<div class="bar" data-v="46"><div>Cloud use<b>+5.7</b></div><i><s></s></i></div>
+</div></div>
+
+<div class="card case rv">
+<div><div class="k">Case 02 · Customer intelligence</div><h2 style="font-size:2rem">Customer &amp; Operational Analytics</h2>
+<p style="color:var(--mute)">Using the UCI Online Retail II transactions, this case separates sales from cancellations and other record types, then examines revenue over time, customer concentration, repeat purchasing, geography and product performance.</p>
+<div class="tags"><span>Python</span><span>SQL</span><span>Data validation</span><span>Customer analytics</span><span>Operations</span></div>
+<a class="btn p" href="https://sinosk31-a11y.github.io/projects/project-02/" target="_blank" rel="noopener noreferrer">Open case study →</a></div>
+<div class="flow"><span>Raw transactions</span><em>→</em><span>Validate</span><em>→</em><span>Classify types</span><em>→</em><span>Customer datasets</span><em>→</em><span>Revenue, repeat, geo, product, cancellations</span><em>→</em><span>Business insight</span></div>
+</div>
+</div>
+</section>
+
+<section id="method">
+<div class="k rv">02 / how I work</div><h2 class="rv">From question to <span class="g">decision</span>.</h2>
+<div class="grid">
+<div class="card rv"><div class="term" id="term"></div></div>
+<div class="card rv"><div class="k">Pipeline</div><h2 style="font-size:1.5rem">Reproducible by default</h2>
+<p style="color:var(--mute);margin-bottom:14px">Raw data, cleaning scripts, processed tables, a data dictionary and validation summaries all live in version control, so every number in a case study can be traced and rerun.</p>
+<div class="flow"><span>Source</span><em>→</em><span>Validate</span><em>→</em><span>Clean</span><em>→</em><span>SQL</span><em>→</em><span>Stats</span><em>→</em><span>Visuals</span><em>→</em><span>Findings</span></div>
+<p style="color:var(--mute);margin-top:14px">Operations background: troubleshooting, root-cause analysis and escalation discipline carry straight into data quality work.</p></div>
+</div>
+</section>
+
+<section id="skills">
+<div class="k rv">03 / toolkit</div><h2 class="rv">Pick a lens. <span class="g">The stack adapts.</span></h2>
+<p class="sub rv">Use the role buttons at the top. Relevant skills light up for the field you are hiring for.</p>
+<div class="card rv"><div class="sk" id="sk">
+<span data-r="0123">SQL</span><span data-r="0123">Python</span><span data-r="013">Pandas</span><span data-r="0">Exploratory analysis</span><span data-r="0">Statistics &amp; correlation</span><span data-r="03">Data storytelling</span><span data-r="03">KPI reporting</span><span data-r="03">Data visualisation</span><span data-r="1">DuckDB</span><span data-r="1">Data cleaning &amp; validation</span><span data-r="1">Data modelling</span><span data-r="1">Reproducible pipelines</span><span data-r="2">Java fundamentals</span><span data-r="2">Git &amp; GitHub</span><span data-r="2">HTML &amp; CSS</span><span data-r="2">Troubleshooting</span><span data-r="03">Business interpretation</span><span data-r="12">CompTIA A+</span><span data-r="123">Root-cause analysis</span></div></div>
+</section>
+
+<section id="contact" style="text-align:center">
+<div class="k rv">04 / contact</div><h2 class="rv">Let’s make data <span class="g">useful</span>.</h2>
+<p class="sub rv" style="margin-inline:auto">Hiring for analytics, BI, data engineering or software? I’d like to talk.</p>
+<div class="cta rv" style="justify-content:center"><a class="btn p" href="https://www.linkedin.com/in/sinothile-mpofu-74a01821a" target="_blank" rel="noopener noreferrer">Message on LinkedIn ↗</a><a class="btn" href="https://github.com/sinosk31-a11y" target="_blank" rel="noopener noreferrer">View GitHub ↗</a></div>
+</section>
+<footer>© 2026 Sinothile Mpofu · Based in Europe · Open to remote</footer>
+</main>
+<script>
+(()=>{
+const L=["I turn messy public and operational data into clear evidence: validated datasets, SQL analysis, statistics and visuals that answer a business question.","I build reproducible data pipelines: raw sources cleaned, validated, modelled in DuckDB and documented with a data dictionary.","I write practical Python and SQL, ship with Git and treat troubleshooting as a core engineering skill, backed by years of enterprise support work.","I turn KPIs and reports into decision support: what changed, why it matters and what a stakeholder should do next."];
+const lead=document.getElementById('lead'),btns=[...document.querySelectorAll('#roles button')],sk=[...document.querySelectorAll('#sk span')];
+function role(i){btns.forEach((b,j)=>b.classList.toggle('on',i==j));lead.style.opacity=0;setTimeout(()=>{lead.textContent=L[i];lead.style.opacity=1},200);sk.forEach(s=>s.classList.toggle('hl',s.dataset.r.includes(i)))}
+btns.forEach((b,i)=>b.onclick=()=>role(i));role(0);
+let k=0;setInterval(()=>{if(!document.hidden&&!matchMedia('(prefers-reduced-motion:reduce)').matches&&!window.__p){k=(k+1)%4;role(k)}},7000);
+document.getElementById('roles').addEventListener('pointerdown',()=>window.__p=1);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;t.classList.add('in');t.querySelectorAll('.bar').forEach(b=>b.querySelector('s').style.width=b.dataset.v+'%');if(t.id==='term')type();io.unobserve(t)}),{threshold:.2});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+const cn=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,n=+el.dataset.n,s=el.dataset.s||'',t0=performance.now();(function f(t){const p=Math.min((t-t0)/1400,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)))+(p==1?s:'');if(p<1)requestAnimationFrame(f)})(t0);cn.unobserve(el)}),{threshold:.6});
+document.querySelectorAll('.num').forEach(e=>cn.observe(e));
+document.querySelectorAll('.card').forEach(c=>{c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');if(!c.classList.contains('case'))c.style.transform=`perspective(900px) rotateX(${(.5-y)*7}deg) rotateY(${(x-.5)*9}deg) translateY(-4px)`});c.addEventListener('pointerleave',()=>c.style.transform='')});
+const sp=document.getElementById('spot');addEventListener('pointermove',e=>{sp.style.left=e.clientX+'px';sp.style.top=e.clientY+'px'},{passive:true});
+const T=[["<u>-- illustrative query</u>\n"],["<u>SELECT</u> corr(gdp_pps, ict_share) <u>AS</u> r,\n       <u>COUNT</u>(*) <u>AS</u> n\n<u>FROM</u> project01_master\n<u>WHERE</u> year = 2025;\n\n"],["<em>┌────────┬────┐\n│   r    │ n  │\n├────────┼────┤\n│  0.58  │ 27 │\n└────────┴────┘</em>\n"],["<q>→ moderate positive association. Not causation.</q>"]];
+let ran=0;function type(){if(ran++)return;const el=document.getElementById('term');el.innerHTML='<div class="dots"><i></i><i></i><i></i></div><span id="tt"></span>';const tt=document.getElementById('tt');const html=T.map(x=>x[0]).join('');let i=0,out='';(function s(){if(i>=html.length){tt.innerHTML=out;return}if(html[i]=='<'){const j=html.indexOf('>',i);out+=html.slice(i,j+1);i=j+1}else{out+=html[i++]}tt.innerHTML=out+'<b style="color:var(--b)">▍</b>';setTimeout(s,html[i-1]=='\n'?120:14)})()}
+const cv=document.getElementById('net'),x=cv.getContext('2d');let W,H,P=[];function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;P=Array.from({length:Math.min(70,W/18|0)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}))}rs();addEventListener('resize',rs);
+let h=200;(function d(){x.clearRect(0,0,W,H);h=(h+.15)%360;P.forEach((p,i)=>{p.x=(p.x+p.vx+W)%W;p.y=(p.y+p.vy+H)%H;x.fillStyle=`hsla(${h},100%,70%,.8)`;x.beginPath();x.arc(p.x,p.y,1.6,0,7);x.fill();for(let j=i+1;j<P.length;j++){const q=P[j],dd=Math.hypot(p.x-q.x,p.y-q.y);if(dd<130){x.strokeStyle=`hsla(${h+60},100%,70%,${.18*(1-dd/130)})`;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}});if(!matchMedia('(prefers-reduced-motion:reduce)').matches)requestAnimationFrame(d)})();
+})();
+</script>
+</body>
+</html>
